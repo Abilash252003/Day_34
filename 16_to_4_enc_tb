@@ -1,0 +1,33 @@
+
+///100 days of RTL///
+
+///Abilash P///
+
+///16:4 encoder test bench code///
+
+module enc_16_to_4_tb ();
+
+reg  [15:0]A;
+wire [3:0]Y;
+
+enc_16_to_4 ENC1 (.A(A), .Y(Y));
+
+integer i;
+
+initial
+begin
+  A = {15'b0,1'b1};
+  $display("The Input A = %b",A);
+  #20;
+  for(i=1; i<16; i=i+1)
+  begin
+    A= A << 1'b1;
+    $display("The Input A = %b",A);
+    #20;
+  end
+end
+
+initial
+ $monitor ("The Output Y3 = %b, Y2 = %b, Y1 = %b, Y0 = %b------------Y = %d",Y[3], Y[2], Y[1], Y[0], Y);
+
+endmodule
