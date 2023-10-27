@@ -1,0 +1,19 @@
+
+///100 days of RTL///
+
+///Abilash P///
+
+///16:4 encoder in gate flow modeling///
+
+module enc_16_to_4 (A,Y);
+
+input  [15:0]A;
+output [3:0]Y;
+
+or o1 (Y[3], A[8], A[9], A[10], A[11],  A[12],  A[13],  A[14],  A[15]);
+or o2 (Y[2], A[4], A[5], A[6],  A[7],   A[12],  A[13],  A[14],  A[15]);
+or o3 (Y[1], A[2], A[3], A[6],  A[7],   A[10],  A[11],  A[14],  A[15]);
+or o4 (Y[0], A[1], A[3], A[5],  A[7],   A[9],   A[11],  A[13],  A[15]);
+
+endmodule
+ 
